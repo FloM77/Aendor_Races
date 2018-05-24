@@ -1,0 +1,7 @@
+name: Races
+version: 1.0
+main: AT.MSev.Races.Races
+commands:
+   Races:
+      description: Opens race menu
+      usage: /Races
