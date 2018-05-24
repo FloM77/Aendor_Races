@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class CommandOpenMenu implements CommandExecutor {
     static Inventory RaceMenu = Bukkit.createInventory(null, 54, "Race Menu");
 
-    public static void InitInv(){
+    static{
         RaceMenu.setItem(10, new CustomItemMenuRace("MenuH", Material.ANVIL, Races.Race.Human) {
             {
                 Rename("Human race");

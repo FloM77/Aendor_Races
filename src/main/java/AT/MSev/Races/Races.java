@@ -22,7 +22,6 @@ public class Races extends JavaPlugin {
         config = this;
 
         this.getCommand("Races").setExecutor(new CommandOpenMenu());
-        CommandOpenMenu.InitInv();
         getServer().getPluginManager().registerEvents(new Handler(), this);
     }
     @Override
