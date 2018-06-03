@@ -1,12 +1,12 @@
 package AT.MSev.Races;
 
-import AT.MSev.Mango.CustomItemMenu;
+import AT.MSev.Mango_Core.Items.ItemInteractable;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-public class CustomItemMenuRace extends CustomItemMenu {
+public class CustomItemMenuRace extends ItemInteractable {
     Races.Race Race;
     public CustomItemMenuRace(String name, Material appearance, Races.Race race)
     {
@@ -15,8 +15,8 @@ public class CustomItemMenuRace extends CustomItemMenu {
     }
 
     @Override
-    public void ClickEvent(InventoryClickEvent e) {
-        super.ClickEvent(e);
+    public void OnInventoryClick(InventoryClickEvent e) {
+        super.OnInventoryClick(e);
         if(Races.GetRace((Player)e.getWhoClicked()) != Race)
         {
             Races.SetRace((Player)e.getWhoClicked(), Race);
@@ -26,5 +26,8 @@ public class CustomItemMenuRace extends CustomItemMenu {
         {
             e.getWhoClicked().sendMessage(ChatColor.YELLOW + "You already are a " + Race.toString() + ".");
         }
+
+        e.setCancelled(true);
+        e.getCursor().setType(Material.AIR);
     }
 }
